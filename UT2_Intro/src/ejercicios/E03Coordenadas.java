@@ -23,11 +23,13 @@ public class E03Coordenadas {
 		base=Math.abs(x2-x1);
 		altura=Math.abs(y2-y1);
 		
-		System.out.println("Area = " + base*altura);
+		//System.out.println("Area = " + base*altura);
 		
 		// El rectángulo (2,6)(4,8) tiene una altura de 4
 		// y una base de 4, y un área de 16.
-		
+		System.out.printf("El rectángulo (%d,%d)(%d,%d) tiene una"
+		 + " altura de %d y una base de %d, y un área de %d.",
+		 x1,x2,y1,y2,altura,base,base*altura);
 		
 	}
 
