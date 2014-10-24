@@ -30,7 +30,5 @@ public class E03Coordenadas {
 		System.out.printf("El rectángulo (%d,%d)(%d,%d)\n\ttiene una"
 		 + " altura de %d\n\ty una base de %d,\n\ty un área de %d.",
 		 x1,x2,y1,y2,altura,base,base*altura);
-		
 	}
-
 }
