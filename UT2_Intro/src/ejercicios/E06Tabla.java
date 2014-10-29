@@ -14,8 +14,26 @@ public class E06Tabla {
 				+ !a + " "
 				+ !b );
 		
-		System.out.printf("%b %b %b %b\n",
-				(a && b),(a || b),!a,!b );
+		a=(5>=6);
+		b=(3!=3);
+		System.out.println((a && b) + " " + (a || b )+ " " + !a + " " + !b);
+		
+		
+		a= -7==8;
+		/*
+		b=22; 
+		System.out.println((a && b) + " " + (a || b )+ " " + !a + " " + !b);
+		 -No se puede hacer 
+		*/
+		
+		a=(21!=12);
+		b=true;
+		System.out.println((a && b) + " " + (a || b )+ " " + !a + " " + !b);
+		
+		a= 4==2;
+		b= 7<=-9;
+		System.out.println((a && b) + " " + (a || b )+ " " + !a + " " + !b);
+		
 	}
 
 }
