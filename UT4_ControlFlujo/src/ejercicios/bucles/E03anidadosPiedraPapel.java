@@ -39,7 +39,7 @@ public class E03anidadosPiedraPapel {
 		do {
 			respuesta=JOptionPane
 					.showInputDialog("¿Quieres continuar [s/n]?:");
-		}while(!(respuesta.equalsIgnoreCase("s") || respuesta.equalsIgnoreCase("n")))
+		}while(!(respuesta.equalsIgnoreCase("s") || respuesta.equalsIgnoreCase("n")));
 		
 	} while (respuesta.equalsIgnoreCase("s"));
 	}
