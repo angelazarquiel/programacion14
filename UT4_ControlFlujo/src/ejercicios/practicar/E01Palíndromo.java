@@ -6,7 +6,7 @@ public class E01Palíndromo {
 
 	public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in);
-		long numero = teclado.nextInt();;
+		long numero = teclado.nextInt();
 		long numeroRestante, numeroInvertido, resto;
 
 		numeroRestante = numero;
