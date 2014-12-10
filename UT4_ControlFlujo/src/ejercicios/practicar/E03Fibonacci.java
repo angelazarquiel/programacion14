@@ -43,7 +43,7 @@ public class E03Fibonacci {
 		if (encontrado)
 			System.out.println("El número está en la serie");
 		
-		
 	}
 
+	
 }
