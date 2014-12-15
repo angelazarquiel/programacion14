@@ -12,7 +12,7 @@ public class Ejercicio03 {
 		do {
 			System.out.print("Dame el lado del cuadrado ([100,200]): ");
 			lado = input.nextInt();
-		} while (!(lado >= 100 && lado <= 200));
+		} while (lado < 100 || lado > 200);
 		
 		Rectangle cuadrado;
 		cuadrado = new Rectangle(20, 20, lado, lado);
