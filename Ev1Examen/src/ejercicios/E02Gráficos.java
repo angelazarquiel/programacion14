@@ -1,13 +1,8 @@
-package ejercicios.graficos;
+package ejercicios;
 
-import javax.swing.JOptionPane;
+import graphics.*;
 
-import graphics.Color;
-import graphics.Ellipse;
-import graphics.Rectangle;
-import graphics.Text;
-
-public class E02Coche {
+public class E02Gráficos {
 
 	public static void main(String[] args) throws InterruptedException {
 		Rectangle rectangulo1,rectangulo2;
@@ -30,11 +25,11 @@ public class E02Coche {
 		int mover;
 		while (true) {
 			mover=-1;
-			for (int i = 0; i < 50; i++) {
+			for (int i = 0; i < 40; i++) {
 				Thread.sleep(10);
 				rectangulo1.grow(mover,mover);
 				rectangulo2.grow(mover,mover);
-				if (i==24) mover=-mover;
+				if (i==19) mover=-mover;
 			}
 		}
 
