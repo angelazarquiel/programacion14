@@ -26,7 +26,7 @@ public class E02Gráficos {
 		while (true) {
 			mover=-1;
 			for (int i = 0; i < 40; i++) {
-				Thread.sleep(10);
+				Thread.sleep(50);
 				rectangulo1.grow(mover,mover);
 				rectangulo2.grow(mover,mover);
 				if (i==19) mover=-mover;
