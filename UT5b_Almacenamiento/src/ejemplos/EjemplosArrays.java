@@ -53,6 +53,7 @@ public class EjemplosArrays {
 			System.out.println(nombres.get(i) + " tiene " +edad.get(i) + " años");
 		}
 		
+		
 		if (nombres.contains("Pablo"))
 			System.out.println("Pablo está en el array");
 		else
