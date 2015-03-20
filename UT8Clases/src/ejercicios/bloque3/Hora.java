@@ -45,13 +45,17 @@ public class Hora {
 			this.hora = hora;
 	}
 
-	public String getHora() {
+	public int getHora() {
+		return this.hora;
+	}
+	
+	public String getHoraString() {
 		return String.format("%02d:%02d:%02d",this.hora, this.minutos,this.segundos);
 	}
 	
 	@Override
 	public String toString() {
-		return "Hora: " + getHora();
+		return "Hora: " + getHoraString();
 	}
 
 	private void acumular() {
