@@ -24,9 +24,11 @@ public class PruebaComplejo {
 		assert uno.equals(new Complejo(4,-1));
 		System.out.println(uno);
 		
-		
 		uno.multiplica(dos);
 		assert uno.equals(new Complejo(10,6));
+		
+		uno.divide(dos);
+		assert uno.equals(new Complejo(4,-1));
 		
 	}
 

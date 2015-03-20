@@ -22,7 +22,7 @@ public class Complejo {
 
 	@Override
 	public String toString() {
-		return String.format("(%f,%f)", real, imaginaria);
+		return String.format("(%.2f%+.2fi)", real, imaginaria);
 	}
 
 	public void resta(Complejo b) {
@@ -59,13 +59,22 @@ public class Complejo {
 	}
 
 	public void multiplica(Complejo b) {
-		this.real = (this.real * b.real)-(this.imaginaria * b.imaginaria);
-		this.imaginaria = (this.real * b.imaginaria)
-				+ (this.imaginaria * b.real);
-
-		//System.out.println("(" + this.real + "," + this.imaginaria + ")");
+		double resReal= (this.real * b.real)-(this.imaginaria * b.imaginaria);
+		double resImaginaria= (this.real * b.imaginaria) + (this.imaginaria * b.real);
+		this.real = resReal;
+		this.imaginaria = resImaginaria;
 	}
 
+	public void divide(Complejo b) {
+		double resReal= ((this.real * b.real)+(this.imaginaria * b.imaginaria))/
+					(b.real*b.real+b.imaginaria*b.imaginaria);
+		double resImaginaria= ((this.imaginaria * b.real)-(this.real * b.imaginaria))/
+					(b.real*b.real+b.imaginaria*b.imaginaria);;
+		
+		this.real = resReal;
+		this.imaginaria = resImaginaria;
+	}
+	
 	public double getReal() {
 		return real;
 	}
