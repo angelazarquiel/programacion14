@@ -21,5 +21,12 @@ public class FechayHora {
 			fecha.siguienteDia();
 		}
 	}
+
+	@Override
+	public String toString() {
+		return  fecha + " " +hora ;
+	}
+	
+	
 	
 }
