@@ -2,11 +2,24 @@ package ejemplos;
 
 import java.util.ArrayList;
 
+/**
+ * Clase Movil para almacenar datos de marca, modelo y aplicaciones
+ * un movil
+ * 
+ * @author Angel M.C.
+ * 
+ */
 public class Movil {
 
 	private String marca,modelo;
 	private ArrayList<AplicacionMovil> aplicaciones;
 	
+	/**
+	 * Constructor único
+	 * 
+	 * @param marca Marca del movil
+	 * @param modelo Modelo del movil
+	 */
 	public Movil(String marca, String modelo) {
 		this.marca = marca;
 		this.modelo = modelo;
