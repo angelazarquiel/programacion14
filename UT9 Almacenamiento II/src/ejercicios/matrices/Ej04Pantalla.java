@@ -96,48 +96,63 @@ public class Ej04Pantalla {
 		p.pincel = 'R';
 		p.rectangulo(3, 2, 6, 4);
 
+		p.pincel = 'C';
+		p.circulo(4, 4, 3);
+
 		p.dibujar();
 
 	}
 
-	private void rectangulo(int coor1, int coor2, int tamañox,int tamañoy) {
-		linea(coor1,coor2 , coor1+tamañox-1, coor2);
-		linea(coor1,coor2 , coor1, coor2+tamañoy-1);
-		linea(coor1+tamañox-1,coor2 , coor1+tamañox-1, coor2+tamañoy-1);
-		linea(coor1,coor2+tamañoy-1 , coor1+tamañox-1, coor2+tamañoy-1);
-		
+	private void rectangulo(int coor1, int coor2, int tamañox, int tamañoy) {
+		linea(coor1, coor2, coor1 + tamañox - 1, coor2);
+		linea(coor1, coor2, coor1, coor2 + tamañoy - 1);
+		linea(coor1 + tamañox - 1, coor2, coor1 + tamañox - 1, coor2 + tamañoy
+				- 1);
+		linea(coor1, coor2 + tamañoy - 1, coor1 + tamañox - 1, coor2 + tamañoy
+				- 1);
 	}
 
 	private void cuadrado(int coor1, int coor2, int tamaño) {
-		/*for (int i = 0; i < tamaño; i++) {
-			pantalla[coor2][coor1 + i] = pincel;
-		}
-
-		for (int i = 0; i < tamaño; i++) {
-			pantalla[coor2 + tamaño - 1][coor1 + i] = pincel;
-		}
-
-		for (int i = 0; i < tamaño; i++) {
-			pantalla[coor2 + i][coor1] = pincel;
-		}
-
-		for (int i = 0; i < tamaño; i++) {
-			pantalla[coor2 + i][coor1 + tamaño - 1] = pincel;
-		}*/
+		/*
+		 * for (int i = 0; i < tamaño; i++) { pantalla[coor2][coor1 + i] =
+		 * pincel; }
+		 * 
+		 * for (int i = 0; i < tamaño; i++) { pantalla[coor2 + tamaño - 1][coor1
+		 * + i] = pincel; }
+		 * 
+		 * for (int i = 0; i < tamaño; i++) { pantalla[coor2 + i][coor1] =
+		 * pincel; }
+		 * 
+		 * for (int i = 0; i < tamaño; i++) { pantalla[coor2 + i][coor1 + tamaño
+		 * - 1] = pincel; }
+		 */
 
 		/*
-		for (int i = 0; i < tamaño; i++) {
-			pantalla[coor2][coor1 + i] = pincel;
-			pantalla[coor2 + tamaño - 1][coor1 + i] = pincel;
-			pantalla[coor2 + i][coor1] = pincel;
-			pantalla[coor2 + i][coor1 + tamaño - 1] = pincel;
-		}*/
-		
-		linea(coor1,coor2 , coor1+tamaño-1, coor2);
-		linea(coor1,coor2 , coor1, coor2+tamaño-1);
-		linea(coor1+tamaño-1,coor2 , coor1+tamaño-1, coor2+tamaño-1);
-		linea(coor1,coor2+tamaño-1 , coor1+tamaño-1, coor2+tamaño-1);
+		 * for (int i = 0; i < tamaño; i++) { pantalla[coor2][coor1 + i] =
+		 * pincel; pantalla[coor2 + tamaño - 1][coor1 + i] = pincel;
+		 * pantalla[coor2 + i][coor1] = pincel; pantalla[coor2 + i][coor1 +
+		 * tamaño - 1] = pincel; }
+		 */
+
+		linea(coor1, coor2, coor1 + tamaño - 1, coor2);
+		linea(coor1, coor2, coor1, coor2 + tamaño - 1);
+		linea(coor1 + tamaño - 1, coor2, coor1 + tamaño - 1, coor2 + tamaño - 1);
+		linea(coor1, coor2 + tamaño - 1, coor1 + tamaño - 1, coor2 + tamaño - 1);
 
 	}
 
+	public void circulo(int x1, int y1, int radio) {
+		int x = -radio, y = 0, err = 2 - 2 * radio; /* II. Quadrant */
+		do {
+			pantalla[y1 + y][x1 - x] = pincel; /* I. Quadrant */
+			pantalla[y1 - x][x1 - y] = pincel; /* II. Quadrant */
+			pantalla[y1 - y][x1 + x] = pincel; /* III. Quadrant */
+			pantalla[y1 + x][x1 + y] = pincel; /* IV. Quadrant */
+			radio = err;
+			if (radio <= y)
+				err += ++y * 2 + 1; /* e_xy+e_y < 0 */
+			if (radio > x || err > y)
+				err += ++x * 2 + 1; /* e_xy+e_x > 0 or no 2nd y-step */
+		} while (x < 0);
+	}
 }
