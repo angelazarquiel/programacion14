@@ -1,6 +1,6 @@
 package ejemplos;
 
-public class Animal extends Object {
+public class Animal extends Object implements Felicitable {
 	
 	private String nombreCientifico;
 	
@@ -20,6 +20,12 @@ public class Animal extends Object {
 
 	public void setNombre(String nombre) {
 		this.nombreCientifico = nombre;
+	}
+
+	@Override
+	public void enviarFelicitación(String texto) {
+		System.out.println("Felicitación");
+		System.out.println(texto);		
 	}
 	
 }
