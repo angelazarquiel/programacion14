@@ -26,6 +26,14 @@ public class Animal {
 		this.fechaNac=fechaNac;
 	}
 
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	@Override
 	public String toString() {
 		return "Animales [peso=" + peso + ", nombre=" + nombre + ", fechaNac="

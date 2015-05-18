@@ -1,33 +1,27 @@
 package ejercicios.clinicaveterinaria;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
 
-	private String[] opciones;
-	private int num_opciones;
+	private ArrayList<String> opciones;
 	private String titulo;
 
-	private final static int MAX_OPCIONES = 20;
-
 	public Menu() {
-		opciones = new String[MAX_OPCIONES];
-		titulo = "Menï¿½";
+		opciones = new ArrayList<String>();
+		titulo = "Menú";
 	}
 
-	public Menu(String[] opciones, int num_opciones) {
-		this.opciones = new String[MAX_OPCIONES];
-		for (int i = 0; i < num_opciones; i++)
-			this.opciones[i] = opciones[i];
-		titulo = "Menï¿½";
-		this.num_opciones = num_opciones;
+	public Menu(List<String> opciones) {
+		this.opciones = new ArrayList<String>(opciones);
+		titulo = "Menú";
 	}
 
 	public void añadirOpción(String nuevaOpción) {
-		if (num_opciones < MAX_OPCIONES) {
-			this.opciones[num_opciones] = nuevaOpción;
-			num_opciones++;
-		}
+		this.opciones.add(nuevaOpción);
 	}
 
 	public void imprimir() {
@@ -35,8 +29,9 @@ public class Menu {
 		for (int i = 0; i < titulo.length(); i++)
 			System.out.print("-");
 		System.out.println();
-		for (int i = 0; i < num_opciones; i++)
-			System.out.println((i + 1) + ". " + opciones[i]);
+		for (int i = 0; i < opciones.size(); i++)
+			System.out.println((i + 1) + ". " + opciones.get(i));
+		System.out.println(opciones.size()+1 + ". Salir");
 	}
 
 	public int imprimirYPreguntar() {
@@ -44,7 +39,7 @@ public class Menu {
 		int opción;
 
 		imprimir();
-		System.out.println(" Opciï¿½n: ");
+		System.out.println(" Opción: ");
 		opción = scn.nextInt();
 
 		return opción;
@@ -64,7 +59,7 @@ public class Menu {
 
 		String[] opciones = { "Uno", "Dos", "Tres" };
 
-		menu1 = new Menu(opciones, 3);
+		menu1 = new Menu(Arrays.asList(opciones));
 
 		System.out.println("Ha seleccionado " + menu1.imprimirYPreguntar());
 

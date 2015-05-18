@@ -1,91 +1,96 @@
 package ejercicios.clinicaveterinaria;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class PruebaClinica {
 
 	public static void main(String[] args) {
 
-		Animal[] animales = new Animal[20];
-		int numAnimales=0;
+		ArrayList<Animal> animales = new ArrayList<Animal>();
 		
-		String[] opcionesClinica = { "Añadir animal", "Borrar animal", "Listar", "Salir" };
-		String[] opcionesAnimales = { "Añadir mamñfero", "Añadir reptil",
-				"Añadir pez", "Salir" };
-		String[] opcionesMamiferos = { "Añadir perro", "Añadir gato", "Salir" };
+		String[] opcionesClinica = { "Añadir animal", "Borrar animal", "Listar"};
+		String[] opcionesAnimales = { "Añadir mamífero", "Añadir reptil",
+				"Añadir pez"};
+		String[] opcionesMamiferos = { "Añadir perro", "Añadir gato"};
 
-		Menu menuClinicaAnimales = new Menu(opcionesClinica, 4);
-		Menu menuAnimales = new Menu(opcionesAnimales, 4);
-		Menu menuMamiferos = new Menu(opcionesMamiferos, 3);
-
+		Menu menuClinicaAnimales = new Menu(Arrays.asList(opcionesClinica));
+		Menu menuAnimales = new Menu(Arrays.asList(opcionesAnimales));
+		Menu menuMamiferos = new Menu(Arrays.asList(opcionesMamiferos));
+		menuClinicaAnimales.setTitulo("Clínica");
+		menuAnimales.setTitulo("Añadir un animal");
+		menuMamiferos.setTitulo("Añadir un mamífero");
+		
 		int respuesta;
 		System.out.println("\n*  CLINICA DE ANIMALES  *");
 		do {
-			System.out.println("==Menñ clñnica de animales:==");
-			do {
-				respuesta = menuClinicaAnimales.imprimirYPreguntar();
-			} while (respuesta != 1 && respuesta != 2 && respuesta != 3);
+			
+			respuesta = menuClinicaAnimales.imprimirYPreguntar();
 
 			switch (respuesta) {
 			case 1: // CREAR ANIMAL
+				int respuesta2;
 				do {
-					System.out.println("==Menñ clñnica de animales:==");
-					do {
-						respuesta = menuAnimales.imprimirYPreguntar();
-					} while (respuesta != 1 && respuesta != 2 && respuesta != 3
-							&& respuesta != 4);
+					
+					respuesta2 = menuAnimales.imprimirYPreguntar();
+					
+					switch (respuesta2) {
+					case 1: //"Añadir mamífero"
+							int respuesta3;
+							respuesta3 = menuMamiferos.imprimirYPreguntar();
 
-					switch (respuesta) {
-					case 1: //"Añadir mamñfero"
-						do {
-							System.out.println("==Menñ clñnica de animales:==");
-							do {
-								respuesta = menuMamiferos.imprimirYPreguntar();
-							} while (respuesta != 1 && respuesta != 2
-									&& respuesta != 3);
-
-							switch (respuesta) {
+							switch (respuesta3) {
 							case 1: // Perro
 								Perro perro=new Perro(new Cliente("Antonio C.","C/ Guadamur"),
 										"Chinico",12.6,"20/2/2010","Chihuahua",23345,false);
-								animales[numAnimales++]=perro;
+								animales.add(perro);
 								break;
 							case 2: // Gato
 								Gato gato=new Gato(new Cliente("Antonio C.","C/ Guadamur"),
 										"Gatico", 4.5, "20/2/2010", "Angora");
-								animales[numAnimales++]=gato;
+								animales.add(gato);
 								break;
 							case 3: // Salir
-	
+								System.out.println("Cancelado");
 							}
-						} while (respuesta != 3);
 
 						break;
 					case 2: // "Añadir reptil",
-					 
-
+						Reptiles nuevoReptil=new Reptiles(new Cliente("Antonio C.","C/ Guadamur"),"Cameolin",0.200,"20/2/2010");
+						animales.add(nuevoReptil);
 						break;
 					case 3: // "Añadir pez"
-
+						Peces p=new Peces(new Cliente("Antonio C.","C/ Guadamur"),"Nemos",0.100,"20/2/2015",20,false);
+						animales.add(p);
 						break;
 					case 4:
 
 					}
-				} while (respuesta != 4);
+				} while (respuesta2 != 4);
 
 				break;
 			case 2: // Borrar animal
-				// 3Âº
-				animales[2]=animales[--numAnimales];
-				animales[numAnimales]=null;
+				Scanner scn = new Scanner(System.in);
+				
+				System.out.println("Nombre del animal: ");
+				String nombre=scn.next();
+				int i=0;
+				for(;i<animales.size();i++)
+					if (animales.get(i).getNombre().equals(nombre))
+						break;
+				if (i<animales.size()) animales.remove(i);
+				
 				break;
 			case 3: // Listar
-				for(int i=0;i<numAnimales;i++)
-					System.out.println(animales[i]); 
+				for(i=0;i<animales.size();i++)
+					System.out.println(animales.get(i)); 
 				break;
 			case 4:
 				System.out.println("FIN DEL PROGRAMA");
 			}
 
-		} while (respuesta != 3);
+		} while (respuesta < 4);
 	}
 }
 
