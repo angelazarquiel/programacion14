@@ -3,7 +3,7 @@ package ejercicios.MediaMac;
 public class Aparato {
 
 	//Almacena el número de producto y número de serie del aparato (cadenas de texto), 
-	//su nombre, sistema operativo (úAndroid 4.1ú, úiOS 6ú, úWindows Phone 8ú, etc) y precio base.
+	//su nombre, sistema operativo (Android 4.1ú, úiOS 6ú, úWindows Phone 8ú, etc) y precio base.
 	
 	private String numProducto;
 	private String numSerie;
